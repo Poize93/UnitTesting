@@ -1,4 +1,9 @@
-import { logRoles, render, screen } from "@testing-library/react";
+// import { logRoles, render, screen } from "@testing-library/react";
+import {
+  logRoles,
+  render,
+  screen,
+} from "../../../test-utils/testing-library-utils";
 import OrderEntry from "../OrderEntry";
 import { http, HttpResponse } from "msw";
 import { server } from "../../../mocks/server";
@@ -13,8 +18,8 @@ test("handles error for scoops and topping routes", async () => {
     })
   );
 
-  //   render(<OrderEntry />);
-  const { container } = render(<OrderEntry />);
+  render(<OrderEntry />);
+  // const { container } = render(<OrderEntry />);
 
   //   const alerts = await screen.findAllByRole("alert", {
   //     name: "An unexpected error occurred. Please Try Again later.",
@@ -26,6 +31,6 @@ test("handles error for scoops and topping routes", async () => {
 
   // const alerts = await screen.findAllByRole("alert");
 
-  logRoles(container);
+  // logRoles(container);
   expect(alerts).toHaveLength(2);
 });
